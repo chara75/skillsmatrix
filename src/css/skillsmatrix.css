@@ -1,0 +1,138 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 12pt;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.container-fluid {
+    padding: 15px 30px;
+}
+
+a {
+    color: #00a8ff;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #FF9B26;
+}
+
+.skm-page-options {
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.skm-page-options ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.skm-page-options .title {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.small-text{
+    font-size: .9em;
+}
+    
+.title {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+main {
+    padding: 5px;
+}
+.employee-details {
+    background-color: #8B8376;
+    border: solid 2px #ccc;
+    color: #fff;
+  }
+  
+.employee-details .headerlabel {
+    width: 150px;
+    font-weight: bold;
+  }
+
+.section-row {
+    display: table;
+    border-bottom: 1px solid #eee;
+}
+.question {
+    display: table-cell;
+    vertical-align: middle;
+    width: 300px;
+    max-width: 300px;
+}
+.rating {
+    width: 370px;
+    padding: 8px 10px 5px 10px;
+    height: 31px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.survey-section {
+    position: relative;
+    display:block;
+}
+
+.checkbox {
+    position: relative;
+    width: 40px;
+    display: inline-block;
+    margin-left: 15px;
+}
+.section-title {
+    margin-left: 45px;
+}
+ 
+.survey-section > .checkbox:before {
+    content: "\f096";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #000;
+    font-size: 18pt;
+    font-weight: bold;
+    padding-right: 0.5em;
+    position: absolute;
+    left: 0;
+}
+  
+.survey-section.checked > .checkbox:before {
+    content: "\f046";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: green;
+    font-size: 18pt;
+    padding-right: 0.5em;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.survey-section > .section-body {
+    display:none;
+}
+
+.survey-section.checked > .section-body {
+    display:block;
+    margin-left: 50px;
+    padding-left:10px;
+    border-left: 1px solid black;
+}
+
+    

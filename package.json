@@ -1,0 +1,22 @@
+{
+  "name": "skillsmatrix",
+  "version": "1.0.0",
+  "description": "skills matrix prototype",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta",
+    "font-awesome": "^4.7.0",
+    "http-server": "^0.10.0",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.11.0",
+    "rangeslider.js": "^2.3.1"
+  },
+  "devDependencies": {
+    "http-server": "^0.10.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Susan Lombardi",
+  "license": "ISC"
+}

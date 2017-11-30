@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Skills Matrix Mockup</title>
+<link href="css/ratingcontrol.css" type="text/css" rel="stylesheet" />
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/stn-ratingslider.js" type="text/javascript"></script>
+<script src="js/ratingcontrol.js" type="text/javascript"></script>
+</head>
+<body>
+    Testing<br/>
+    More<br/>
+    <div style="width: 320px">
+        <div class="stn-ratingslider">
+            <div class="ratingcontrol">
+                <div class="ratingline" style="width: 270px"></div>
+                <div class="ratingline__fill" style="width: 140px"></div>
+    
+                <div class="ratingpoint__fill" style="left: 15px"></div>
+                <div class="ratingpoint__fill" style="left: 70px"></div>
+                <div class="ratingpoint__selected" style="left: 140px"></div>
+                <div class="ratingpoint" style="left: 210px"></div>
+                <div class="ratingpoint" style="left: 280px"></div>
+    
+                <div class="ratingnumber" style="left: 0px">0-None</div>
+                <div class="ratingnumber" style="left: 70px">1</div>
+                <div class="ratingnumber__selected" style="left: 145px">2</div>
+                <div class="ratingnumber" style="left: 210px">3</div>
+                <div class="ratingnumber" style="left: 260px;">4-Expert</div>
+            </div>
+        </div>    
+    
+    </div>
+    <div style="width: 400px">
+        <div id="testRatingSlider">Test</div>
+    </div>
+    <script>
+        console.log('before')
+        var element = document.getElementById('testRatingSlider');
+        var ratingSlider = new stn_ratingslider(element);
+        ratingSlider.draw();
+        console.log('after')
+    </script>
+</body>
+</html>
