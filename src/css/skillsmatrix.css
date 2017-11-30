@@ -1,15 +1,41 @@
 body {
     font-family: 'Segoe UI', sans-serif;
-    font-size: 12pt;
+    font-size: 10pt;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    font-weight: 500;
+    color: #777;
+}
+
+.answer {
+    display: inline-block;
+}
+
+.form-inline label {
+    text-align: left;
+    justify-content: left;
+    align-items: left;
+}
+
+.control-group {
+    margin-bottom: 3px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;    
+}
+
+.yesno {
+    font-size: 13pt;
 }
 
 .container-fluid {
     padding: 15px 30px;
+}
+
+.survey {
+    max-width: 800px;
 }
 
 a {
@@ -38,6 +64,44 @@ a:hover {
     text-transform: uppercase;
 }
 
+.main-section {
+    padding-left: 15px;
+    padding-bottom: 20px;
+}
+
+.main-section.personal-info {
+    font-size: 12pt;
+}
+
+.main-section.disciplines {
+    font-size: 12pt;
+}
+
+.main-section.skills {
+    font-size: 12pt;
+}
+
+.main-section-title {
+    font-size: 14pt;
+    color: #8B8376;
+    font-weight: bold;
+    border-top: 1px solid #FF9B26;
+    border-bottom: 1px solid #FF9B26;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.main-section-description {
+    font-size: 12pt;
+}
+
+.test {
+    font-size: 12pt;
+    font-style: italic;    
+}
+
 .small-text{
     font-size: .9em;
 }
@@ -59,6 +123,7 @@ main {
 .employee-details .headerlabel {
     width: 150px;
     font-weight: bold;
+    display: inline-block;
   }
 
 .section-row {
@@ -72,26 +137,39 @@ main {
     max-width: 300px;
 }
 .rating {
-    width: 370px;
+    width: 300px;
     padding: 8px 10px 5px 10px;
     height: 31px;
     display: table-cell;
     vertical-align: middle;
 }
 
+.rating input {
+    width: 100%
+}
+
+.rating-label.employee {
+    font-size: .85em;
+    color: #00a8ff;
+}
+
+.rating-label.manager {
+    font-size: .85em;
+    color: #FF9B26;
+}
+
 .survey-section {
     position: relative;
     display:block;
+    min-width: 600px;
 }
 
 .checkbox {
-    position: relative;
     width: 40px;
     display: inline-block;
-    margin-left: 15px;
 }
 .section-title {
-    margin-left: 45px;
+    display: inline-block;
 }
  
 .survey-section > .checkbox:before {
@@ -104,9 +182,8 @@ main {
     color: #000;
     font-size: 18pt;
     font-weight: bold;
-    padding-right: 0.5em;
-    position: absolute;
-    left: 0;
+    position: relative;
+    top: 5px;
 }
   
 .survey-section.checked > .checkbox:before {
@@ -116,12 +193,29 @@ main {
     font-weight: normal;
     text-decoration: inherit;
 /*--adjust as necessary--*/
-    color: green;
+    color: #00a8ff;
     font-size: 18pt;
-    padding-right: 0.5em;
-    position: absolute;
+    position: relative;
+    top: 5px;
+}
+
+.ratingicon {
+    width: 40px;
+    display: inline-block;
+}
+
+.survey-section .ratingicon:before {
+    content: "\f005";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+/*--adjust as necessary--*/
+    color: #000;
+    font-size: 14pt;
+    font-weight: bold;
+    position: relative;
     top: 0;
-    left: 0;
 }
 
 .survey-section > .section-body {

@@ -1,10 +1,23 @@
+function RatingPoint(ratingValue, label, showLabel) {
+    var ratingValue = ratingValue;
+    var label = label;
+    var showLabel = (showLabel) ? true : false;
+    return {
+        ratingValue: ratingValue,
+        label: label,
+        showLabel: showLabel
+    }
+}
+
 function stn_ratingslider(element, options) {
+    var _buildPointsArray = function(options) {
+        //maxLabel, minLabel, labels
+        
+    }
+
     var $element = $(element);
-    var min = 0;
-    var max = 4;
-    var increment = 1;
-    var steps = Math.floor((max-min+1)/increment);
-    var currentValue = 4;
+    var ratingPoints = _buildPointsArray(options);
+    var currentValue = 2;
     var labels = [
         "None",
         "Basic",
@@ -12,7 +25,8 @@ function stn_ratingslider(element, options) {
         "Advanced",
         "Expert"
     ];  
-    var sliderPadding = 15;
+    var sliderLeftPadding = 20;
+    var sliderRightPadding = 30;
     
     var $ratingSlider = 
         $("<div class='stn-ratingslider'>" + 
@@ -24,14 +38,6 @@ function stn_ratingslider(element, options) {
             "<div class='ratingline__fill'></div>" + 
         "</div>");
 
-    var ratingPoint = 
-        "<div class='ratingpoint'></div>" + 
-        "<div class='ratingnumber'></div>";
-    
-    var ratingPointSelected = 
-        "<div class='ratingpoint__selected'></div>" + 
-        "<div class='ratingnumber__selected'></div>"; 
-
     var draw = function() {
         //$element.hide();
         
@@ -39,22 +45,52 @@ function stn_ratingslider(element, options) {
         $ratingSlider.append($ratingControl);
 
         var width = $ratingSlider[0].offsetWidth;
-        lineWidth = width - (sliderPadding * 2);
+        lineWidth = width - (sliderLeftPadding + sliderRightPadding);
         $ratingControl.find('.ratingline')
             .css('width', lineWidth + 'px')
-            .css('left', sliderPadding + 'px');
+            .css('left', sliderLeftPadding + 'px');
         var fillLength = _getLeftPosition(currentValue, lineWidth);
         console.log("Fill Length: " + fillLength);
         $ratingControl.find('.ratingline__fill')
             .css('width', fillLength + 'px')
-            .css('left', sliderPadding + 'px');
+            .css('left', sliderLeftPadding + 'px');
         console.log("Width: " + width + "; Line Width: " + lineWidth);
+        _drawPoints(lineWidth);
     }
 
-    var _drawPoints = function() {
+    var _drawPoints = function(lineWidth) {
+        var fillLength = _getLeftPosition(currentValue, lineWidth);
 
+        $ratingControl.remove('.ratingpoint, .ratingpoint__selected, .ratingnumber, .ratingnumber__selected');
+        for (var i=0; i<steps; i++) {
+            var ratingValue = i * increment;
+            var pointPosition = _getLeftPosition(ratingValue, lineWidth) + sliderLeftPadding;
+            var numberPosition = pointPosition;
+            var fillString = (pointPosition <= fillLength) ? " fill" : "";
+            var selected = currentValue == ratingValue;
+            var pointClass = "ratingpoint" + fillString;
+            var numberClass = "ratingnumber" + fillString;
+            var numberString = ratingValue;
+            if (ratingValue == max) {
+                numberPosition -= sliderRightPadding;
+                numberString += "-" + labels[i]
+            }
+            else if (ratingValue == min) {
+                numberPosition -= sliderLeftPadding;
+                numberString += "-" + labels[i]
+            }
+
+            if (selected) {
+                pointClass = "ratingpoint__selected";
+                numberClass = "ratingnumber__selected";   
+                numberPosition += 5;             
+            }
+            $ratingControl.append("<div class='" + pointClass + "' style='left: " + pointPosition + "px'></div>");
+            $ratingControl.append("<div class='" + numberClass + "' style='left: " + numberPosition + "px'>" + numberString + "</div>");
+            
+        }
     }
-
+    
     var _getLeftPosition = function(ratingValue, lineWidth) {
         if (ratingValue == min) {
             return 0;
